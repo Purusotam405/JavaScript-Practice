@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>reCha Generation</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body onload="gen_cap()">
+<p id="captcha"></p>
+<input type="text" id="txt">
+<button onclick="check_cap()">Check</button>
+
+<script type="text/javascript">
+    function gen_cap(){
+        // console.log(Math.random());
+        data1=Math.round(10*Math.random())
+        console.log(data1)
+        data2=Math.round(10*Math.random());
+        console.log(data2)
+
+        str=`enter ${data1} +${data2}`
+        console.log(str)
+        document.querySelector('#captcha').innerHTML=str;
+        sum=data1+data2;
+        console.log(sum)
+    }
+    function check_cap(){
+        rec=document.querySelector("#txt").value;
+        console.log(rec);
+        if(rec==sum){
+            console.log("Valid")
+        }
+        else{
+            console.log("invalid")
+        }
+    }
+</script>
+
+</body>
+</html>
